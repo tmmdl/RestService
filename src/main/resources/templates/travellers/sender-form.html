@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    </head>
+
+<body>
+
+<div class="container">
+
+    <hr>
+
+    <p class="h4 mb-4">Save Employee</p>
+
+    <form action="#" th:action="@{/form}"
+          th:object="${traveller}" method="POST">
+
+        <input type="text" th:field="*{name}"
+               class="form-control mb-4 col-4" placeholder="Name">
+
+        <input type="text" th:field="*{date}"
+               class="form-control mb-4 col-4" placeholder="Date">
+
+        <input type="text" th:field="*{contact}"
+               class="form-control mb-4 col-4" placeholder="Contact">
+
+        <input type="text" th:field="*{destination}"
+               class="form-control mb-4 col-4" placeholder="Destination">
+
+        <input type="text" th:field="*{comment}"
+               class="form-control mb-4 col-4" placeholder="Comment">
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{index}">Back to future</a>
+
+</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
