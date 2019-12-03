@@ -1,14 +1,24 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Hello</title>
-    <a th:href="@{/list}" class="btn btn-primary btn-sm mb-3">
-        Sending
-    </a>
-    <a th:href="@{/form}" class="btn btn-primary btn-sm mb-3">
-        Traveller
-    </a>
+    <link href="/app.css"
+          rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 </head>
 <body>
+<div class="container d-flex h-100">
+    <div class="row align-self-center w-100">
+        <div class="col-4 mx-auto">
+
+                <p class="lead">
+                    <a class="btn btn-primary btn-lg btn-block" th:href="@{/list}" role="button">Göndərirəm</a>
+                    <a class="btn btn-primary btn-lg btn-block" th:href="@{/form}" role="button">Gedirəm</a>
+                </p>
+
+        </div>
+    </div>
+</div>
 </body>
 </html>

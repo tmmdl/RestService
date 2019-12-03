@@ -7,35 +7,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>List of Travellers</title>
 </head>
-
 <body>
-
 <div class="container">
-
-    <form action="#" th:action="@{/list}"
-          th:object="${traveller}" method="post">
-
-        <button type="button" class="btn btn-info col-2">To Germany</button>
-        <button type="button" class="btn btn-info col-2">To Azerbaijan</button>
-
-        <input name="date" type="date" th:text="*{date}"
-               class="form-control mb-4 col-4" placeholder="Date">
-
-        <select th:field="*{destination}">
-            <option th:value="'Azərbaycana'" th:text="AZE"></option>
-            <option th:value="'Almaniyaya'" th:text="GER"></option>
-        </select>
-
-
-        <button type="submit" class="btn btn-info col-2">Save</button>
-
-    </form>
-
+    <h3>List of Travellers</h3>
+    <hr>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Destination</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="traveller : ${travellers}">
+            <td th:text="${traveller.name}" />
+            <td th:text="${traveller.contact}" />
+            <td th:text="${traveller.comment}" />
+            <td th:text="${traveller.destination}" />
+        </tr>
+        </tbody>
+    </table>
 </div>
-
 </body>
 </html>
 

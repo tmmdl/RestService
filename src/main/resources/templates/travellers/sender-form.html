@@ -7,54 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    </head>
+</head>
 
 <body>
 
 <div class="container">
-
     <hr>
+    <p class="h4 mb-4"></p>
+    <form action="#" th:action="@{/list}"
+          th:object="${traveller}" method="post">
 
-    <p class="h4 mb-4">Save Employee</p>
-
-    <form action="#" th:action="@{/form}"
-          th:object="${traveller}" method="POST">
-
-        <input type="text" th:field="*{name}"
-               class="form-control mb-4 col-4" placeholder="Name">
-
-        <input type="text" th:field="*{date}"
+        <input name="date" type="date" th:text="*{date}"
                class="form-control mb-4 col-4" placeholder="Date">
 
-        <input type="text" th:field="*{contact}"
-               class="form-control mb-4 col-4" placeholder="Contact">
+        <select class="form-control mb-4 col-4" th:field="*{destination}">
+            <option th:value="'Azərbaycana'" th:text="AZE"></option>
+            <option th:value="'Almaniyaya'" th:text="GER"></option>
+        </select>
 
-        <input type="text" th:field="*{destination}"
-               class="form-control mb-4 col-4" placeholder="Destination">
-
-        <input type="text" th:field="*{comment}"
-               class="form-control mb-4 col-4" placeholder="Comment">
 
         <button type="submit" class="btn btn-info col-2">Save</button>
 
     </form>
 
-    <hr>
-    <a th:href="@{index}">Back to future</a>
-
 </div>
+
 </body>
-
 </html>
-
-
-
-
-
-
-
 
 
 

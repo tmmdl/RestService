@@ -45,7 +45,7 @@ public class Controller {
 
         model.addAttribute("traveller", traveller);
 
-        return "travellers/sender-form";
+        return "travellers/traveller-form";
     }
 
     @GetMapping("/list")
@@ -53,7 +53,7 @@ public class Controller {
 
         model.addAttribute("traveller", new Traveller());
 
-        return "travellers/list-of-travellers";
+        return "travellers/sender-form";
     }
 
     @PostMapping("/list")
@@ -79,7 +79,7 @@ public class Controller {
 
         model.addAttribute("travellers", travellers);
 
-        return "travellers/the-list";
+        return "travellers/list-of-travellers";
     }
 
 
