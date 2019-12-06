@@ -48,4 +48,11 @@ public class TravellerController {
         List<Traveller> list= travellerService.findByDestAndByDate(date, destination);
         return list;
     }
+
+    @RequestMapping(value = "/seeker", params = {"destination"}, method = RequestMethod.GET)
+    @ResponseBody
+    public List<Traveller> findBySeek(@RequestParam("destination") String destination) {
+        List<Traveller> list = travellerService.findSeeker(destination);
+        return list;
+    }
 }

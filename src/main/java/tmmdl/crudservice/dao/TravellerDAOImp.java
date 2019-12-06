@@ -24,6 +24,16 @@ public class TravellerDAOImp implements TravellerDAO {
 
 
     @Override
+    public List<Traveller> findSeeker(String destination) {
+        Session session = entityManager.unwrap(Session.class);
+        Query<Traveller> query =
+                session.createQuery("from Traveller where destination =: input AND seeker = true", Traveller.class);
+        query.setParameter("input", destination);
+        List<Traveller> travellers = query.getResultList();
+        return travellers;
+    }
+
+    @Override
     public Traveller findById(int id) {
 
         Session session = entityManager.unwrap(Session.class);
@@ -35,7 +45,7 @@ public class TravellerDAOImp implements TravellerDAO {
     public List<Traveller> findByDestination(String destination) {
         Session session = entityManager.unwrap(Session.class);
         Query<Traveller> query =
-                session.createQuery("from  Traveller where destination = :input", Traveller.class);
+                session.createQuery("from  Traveller where destination = :input AND seeker = false", Traveller.class);
         query.setParameter("input",  destination );
         List<Traveller> travellers = query.getResultList();
         return travellers;
@@ -45,7 +55,7 @@ public class TravellerDAOImp implements TravellerDAO {
     public List<Traveller> findByDestAndByDate(String date, String destination) {
         Session session = entityManager.unwrap(Session.class);
         Query<Traveller> query = session
-                .createQuery("from Traveller where date =: inputDate AND destination =: inputDestination", Traveller.class);
+                .createQuery("from Traveller where date =: inputDate AND destination =: inputDestination AND seeker = false", Traveller.class);
         query.setParameter("inputDate", date);
         query.setParameter("inputDestination", destination);
         LOGGER.info("by date and by destinaiton");

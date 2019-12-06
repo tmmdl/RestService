@@ -16,16 +16,31 @@
         <p class="h4 mb-4">Traveller</p>
         <form action="#" th:action="@{/form}"
           th:object="${traveller}" method="POST">
+
+            <h7>please select</h7>
+            <select class="form-control mb-4 col-4" th:field="*{seeker}" required="required">
+                <option th:value="true" th:text="Axtariram"></option>
+                <option th:value="false" th:text="Gedirem"></option>
+            </select>
+
             <input type="text" th:field="*{name}"
                class="form-control mb-4 col-4" placeholder="Name">
             <input type="date" th:field="*{date}"
                class="form-control mb-4 col-4" placeholder="Date">
             <input type="text" th:field="*{contact}"
-               class="form-control mb-4 col-4" placeholder="Contact">
-            <input type="text" th:field="*{destination}"
-               class="form-control mb-4 col-4" placeholder="Destination">
+               class="form-control mb-4 col-4" placeholder="Phone">
+            <input type="text" th:field="*{mail}"
+                   class="form-control mb-4 col-4" placeholder="Mail">
+            <!--<input type="text" th:field="*{destination}"
+               class="form-control mb-4 col-4" placeholder="Destination">-->
+            <select class="form-control mb-4 col-4" th:field="*{destination}" required="required">
+                <option th:value="null" th:text="'please select'">--</option>
+                <option th:value="'Azərbaycana'" th:text="AZE"></option>
+                <option th:value="'Almaniyaya'" th:text="GER"></option>
+            </select>
             <input type="text" th:field="*{comment}"
                class="form-control mb-4 col-4" placeholder="Comment">
+
             <button type="submit" class="btn btn-info col-2">Save</button>
         </form>
         <hr>

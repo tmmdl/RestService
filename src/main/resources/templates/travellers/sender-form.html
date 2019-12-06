@@ -20,21 +20,23 @@
     <form action="#" th:action="@{/list}"
           th:object="${traveller}" method="post">
 
+        <h5>Göndərmək istədiyiniz dəqiq tarixi və istiqaməti qeyd edin</h5>
+        <br>
         <input name="date" type="date" th:text="*{date}"
                class="form-control mb-4 col-4" placeholder="Date">
-
-        <select class="form-control mb-4 col-4" th:field="*{destination}">
+        <select class="form-control mb-4 col-4" th:field="*{destination}" required="required">
+            <option th:value="null" th:text="'please select'"></option>
             <option th:value="'Azərbaycana'" th:text="AZE"></option>
             <option th:value="'Almaniyaya'" th:text="GER"></option>
         </select>
-
-
         <button type="submit" class="btn btn-info col-2">Save</button>
-
+        <br>
+        <p></p>
+        <p></p>
+        <h5>və ya göndərmək istədiyinizə dair elan yerləşdirin. Beləliklə səyahət edən şəxslər sizi tapa biləcək.</h5> <br>
+        <a class="btn btn-info col-2" th:href="@{/form}" role="button" th:value="true" th:field="*{seeker}">Elan yerlesdir</a>
     </form>
-
 </div>
-
 </body>
 </html>
 

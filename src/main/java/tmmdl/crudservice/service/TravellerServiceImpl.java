@@ -19,6 +19,11 @@ public class TravellerServiceImpl implements TravellerService {
     }
 
     @Override
+    public List<Traveller> findSeeker(String destination) {
+        return travellerDAO.findSeeker(destination);
+    }
+
+    @Override
     @Transactional
     public Traveller findById(int id) {
         return travellerDAO.findById(id);

@@ -72,6 +72,9 @@ public class Controller {
                 e.printStackTrace();
             }
         }
+        if (traveller.isSeeker()){
+            travellers = travellerService.findSeeker(traveller.getDestination());
+        }
 
         LOGGER.info("the date: " + date + " " + traveller.getDestination());
 

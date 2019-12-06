@@ -8,6 +8,8 @@ public interface TravellerService {
 
     //List<Traveller> findAll(); //change to arraylist?
 
+    List<Traveller> findSeeker(String destination);
+
     Traveller findById(int id);
 
     List<Traveller> findByDestination(String destination);

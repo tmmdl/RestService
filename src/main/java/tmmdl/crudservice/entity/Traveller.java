@@ -16,20 +16,26 @@ public class Traveller {
     private String destination;
     @Column(name = "date")
     private String date;
-    @Column(name = "contact")
+    @Column(name = "phone")
     private String contact;
     @Column(name = "comment")
     private String comment;
+    @Column(name = "mail")
+    private String mail;
+    @Column(name = "seeker")
+    private boolean seeker;
 
     public Traveller() {
     }
 
-    public Traveller(String name, String destination, String date, String contact, String comment) {
+    public Traveller(String name, String destination, String date, String contact, String comment, String mail, boolean seeker) {
         this.name = name;
         this.destination = destination;
         this.date = date;
         this.contact = contact;
         this.comment = comment;
+        this.mail = mail;
+        this.seeker = seeker;
     }
 
     public int getId() {
@@ -56,6 +62,18 @@ public class Traveller {
         return comment;
     }
 
+    public String getMail() {
+        return mail;
+    }
+
+    public boolean isSeeker() {
+        return seeker;
+    }
+
+    public void setSeeker(boolean seeker) {
+        this.seeker = seeker;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -76,6 +94,10 @@ public class Traveller {
         this.contact = contact;
     }
 
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
     public void setComment(String comment) {
         this.comment = comment;
     }
@@ -87,7 +109,8 @@ public class Traveller {
                 ", name='" + name + '\'' +
                 ", destination='" + destination + '\'' +
                 ", date='" + date + '\'' +
-                ", contact='" + contact + '\'' +
+                ", phone='" + contact + '\'' +
+                ", mail='" + mail + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';
     }
