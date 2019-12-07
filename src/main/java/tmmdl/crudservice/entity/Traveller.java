@@ -17,7 +17,7 @@ public class Traveller {
     @Column(name = "date")
     private String date;
     @Column(name = "phone")
-    private String contact;
+    private String phone;
     @Column(name = "comment")
     private String comment;
     @Column(name = "mail")
@@ -28,11 +28,11 @@ public class Traveller {
     public Traveller() {
     }
 
-    public Traveller(String name, String destination, String date, String contact, String comment, String mail, boolean seeker) {
+    public Traveller(String name, String destination, String date, String phone, String comment, String mail, boolean seeker) {
         this.name = name;
         this.destination = destination;
         this.date = date;
-        this.contact = contact;
+        this.phone = phone;
         this.comment = comment;
         this.mail = mail;
         this.seeker = seeker;
@@ -54,8 +54,12 @@ public class Traveller {
         return date;
     }
 
-    public String getContact() {
-        return contact;
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getComment() {
@@ -90,9 +94,7 @@ public class Traveller {
         this.date = date;
     }
 
-    public void setContact(String contact) {
-        this.contact = contact;
-    }
+
 
     public void setMail(String mail) {
         this.mail = mail;
@@ -109,7 +111,7 @@ public class Traveller {
                 ", name='" + name + '\'' +
                 ", destination='" + destination + '\'' +
                 ", date='" + date + '\'' +
-                ", phone='" + contact + '\'' +
+                ", phone='" + phone + '\'' +
                 ", mail='" + mail + '\'' +
                 ", comment='" + comment + '\'' +
                 '}';

@@ -66,6 +66,7 @@ public class TravellerDAOImp implements TravellerDAO {
     @Override
     public void save(Traveller traveller) {
         Session session = entityManager.unwrap(Session.class);
+        LOGGER.info("save");
         session.saveOrUpdate(traveller);
     }
 }
