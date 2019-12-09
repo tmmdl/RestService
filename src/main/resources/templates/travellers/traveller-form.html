@@ -9,42 +9,35 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Göndər getsin</title>
 </head>
 <body>
     <div class="container">
         <hr>
-        <p class="h4 mb-4">Traveller</p>
-        <form action="#" th:action="@{/form}"
+        <form action="#" th:action="@{/traveller-form}"
           th:object="${traveller}" method="POST">
-
-            <h7>please select</h7>
-            <select class="form-control mb-4 col-4" th:field="*{seeker}" required="required">
-                <option th:value="true" th:text="Axtariram"></option>
-                <option th:value="false" th:text="Gedirem"></option>
-            </select>
-
             <input type="text" th:field="*{name}"
-               class="form-control mb-4 col-4" placeholder="Name">
+               class="form-control mb-4 col-4" placeholder="Ad">
             <input type="date" th:field="*{date}"
-               class="form-control mb-4 col-4" placeholder="Date">
-            <input type="text" th:field="*{contact}"
-               class="form-control mb-4 col-4" placeholder="Phone">
+               class="form-control mb-4 col-4" placeholder="Tarix" required="required">
+            <input type="text" th:field="*{phone}"
+               class="form-control mb-4 col-4" placeholder="Telefon">
             <input type="text" th:field="*{mail}"
-                   class="form-control mb-4 col-4" placeholder="Mail">
-            <!--<input type="text" th:field="*{destination}"
-               class="form-control mb-4 col-4" placeholder="Destination">-->
+                   class="form-control mb-4 col-4" placeholder="E-Mail">
+            <h6 style="color: red">Zəhmət olmasa istiqaməti qeyd edin:</h6>
             <select class="form-control mb-4 col-4" th:field="*{destination}" required="required">
-                <option th:value="null" th:text="'please select'">--</option>
-                <option th:value="'Azərbaycana'" th:text="AZE"></option>
-                <option th:value="'Almaniyaya'" th:text="GER"></option>
+                <option th:value="null">--</option>
+                <option th:value="'Azərbaycana'">Azərbaycan</option>
+                <option th:value="'Almaniyaya'">Almaniya</option>
             </select>
             <input type="text" th:field="*{comment}"
-               class="form-control mb-4 col-4" placeholder="Comment">
-
-            <button type="submit" class="btn btn-info col-2">Save</button>
+               class="form-control mb-4 col-4" placeholder="Qeyd">
+            <button type="submit" class="btn btn-info col-2">Yadda saxla</button>
         </form>
         <hr>
-        <a th:href="@{index}">Back to future</a>
+        <a class="btn btn-info col-2" th:href="@{/list-of-senders}">Elanlara bax</a>
+        <br>
+        <a th:href="@{index}">Baş səhifəyə qayıt</a>
     </div>
 </body>
 </html>

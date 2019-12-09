@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Göndər getsin</title>
+</head>
+<body>
+<div class="container">
+    <hr>
+    <p class="h4 mb-4"></p>
+    <form action="#" th:action="@{/list-of-travellers}"
+          th:object="${traveller}" method="post">
+        <h5>Göndərmək istədiyiniz dəqiq tarixi və istiqaməti qeyd edin</h5>
+        <br>
+        <input name="date" type="date" th:text="*{date}"
+               class="form-control mb-4 col-4" placeholder="Date">
+        <select class="form-control mb-4 col-4" th:field="*{destination}" required="required">
+            <option th:value="null">--</option>
+            <option th:value="'Azərbaycana'">Azərbaycan</option>
+            <option th:value="'Almaniyaya'">Almaniya</option>
+        </select>
+        <button type="submit" class="btn btn-info col-2">Axtar</button>
+        <br>
+        <p></p>
+        <h5>və ya göndərmək istədiyinizə dair elan yerləşdirin. Beləliklə səyahət edən şəxslər sizi tapa biləcək.</h5> <br>
+        <a class="btn btn-info col-2" th:href="@{/sender-form}" role="button" th:value="true" th:field="*{seeker}">Elan yerləşdir</a>
+    </form>
+</div>
+</body>
+</html>

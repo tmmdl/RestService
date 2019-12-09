@@ -94,8 +94,6 @@ public class Traveller {
         this.date = date;
     }
 
-
-
     public void setMail(String mail) {
         this.mail = mail;
     }

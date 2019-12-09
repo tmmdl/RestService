@@ -1,44 +1,51 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-
 <head>
+    <link href="/app.css"
+          rel="stylesheet">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    <title>Göndər getsin</title>
 </head>
-
 <body>
-
 <div class="container">
     <hr>
-    <p class="h4 mb-4"></p>
-    <form action="#" th:action="@{/list}"
-          th:object="${traveller}" method="post">
-
-        <h5>Göndərmək istədiyiniz dəqiq tarixi və istiqaməti qeyd edin</h5>
-        <br>
-        <input name="date" type="date" th:text="*{date}"
-               class="form-control mb-4 col-4" placeholder="Date">
+    <form action="#" th:action="@{/sender-form}"
+          th:object="${sender}" method="POST">
+        <input type="text" th:field="*{name}"
+               class="form-control mb-4 col-4" placeholder="Ad">
+        <input type="date" th:field="*{date}"
+               class="form-control mb-4 col-4" placeholder="Tarix" required="required">
+        <input type="text" th:field="*{phone}"
+               class="form-control mb-4 col-4" placeholder="Telefon">
+        <input type="text" th:field="*{mail}"
+               class="form-control mb-4 col-4" placeholder="E-Mail">
+        <h6 style="color: red">Zəhmət olmasa istiqaməti qeyd edin:</h6>
         <select class="form-control mb-4 col-4" th:field="*{destination}" required="required">
-            <option th:value="null" th:text="'please select'"></option>
-            <option th:value="'Azərbaycana'" th:text="AZE"></option>
-            <option th:value="'Almaniyaya'" th:text="GER"></option>
+            <option th:value="null">--</option>
+            <option th:value="'Azərbaycana'">Azərbaycan</option>
+            <option th:value="'Almaniyaya'">Almaniya</option>
         </select>
-        <button type="submit" class="btn btn-info col-2">Save</button>
-        <br>
-        <p></p>
-        <p></p>
-        <h5>və ya göndərmək istədiyinizə dair elan yerləşdirin. Beləliklə səyahət edən şəxslər sizi tapa biləcək.</h5> <br>
-        <a class="btn btn-info col-2" th:href="@{/form}" role="button" th:value="true" th:field="*{seeker}">Elan yerlesdir</a>
+        <input type="text" th:field="*{comment}"
+               class="form-control mb-4 col-4" placeholder="Qeyd">
+        <button type="submit" class="btn btn-info col-2">Yadda saxla</button>
     </form>
+    <hr>
+    <a th:href="@{index}">Baş səhifəyə qayıt</a>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
 
 
 

@@ -30,6 +30,8 @@ public class TravellerDAOImp implements TravellerDAO {
                 session.createQuery("from Traveller where destination =: input AND seeker = true", Traveller.class);
         query.setParameter("input", destination);
         List<Traveller> travellers = query.getResultList();
+
+
         return travellers;
     }
 
@@ -38,35 +40,39 @@ public class TravellerDAOImp implements TravellerDAO {
 
         Session session = entityManager.unwrap(Session.class);
         Traveller traveller = session.get(Traveller.class, id);
+
         return traveller;
     }
 
     @Override
     public List<Traveller> findByDestination(String destination) {
+
         Session session = entityManager.unwrap(Session.class);
         Query<Traveller> query =
                 session.createQuery("from  Traveller where destination = :input AND seeker = false", Traveller.class);
         query.setParameter("input",  destination );
         List<Traveller> travellers = query.getResultList();
+
         return travellers;
     }
 
     @Override
     public List<Traveller> findByDestAndByDate(String date, String destination) {
+
         Session session = entityManager.unwrap(Session.class);
         Query<Traveller> query = session
                 .createQuery("from Traveller where date =: inputDate AND destination =: inputDestination AND seeker = false", Traveller.class);
         query.setParameter("inputDate", date);
         query.setParameter("inputDestination", destination);
-        LOGGER.info("by date and by destinaiton");
         List<Traveller> travellers = query.getResultList();
+
         return travellers;
     }
 
     @Override
     public void save(Traveller traveller) {
+
         Session session = entityManager.unwrap(Session.class);
-        LOGGER.info("save");
         session.saveOrUpdate(traveller);
     }
 }

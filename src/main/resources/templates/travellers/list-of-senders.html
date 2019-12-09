@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -24,16 +25,19 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="traveller : ${travellers}">
-            <td th:text="${traveller.name}" />
-            <td th:text="${traveller.destination}" />
-            <td th:text="${traveller.date}" />
-            <td th:text="${traveller.phone}" />
-            <td th:text="${traveller.mail}" />
-            <td th:text="${traveller.comment}" />
+        <tr th:each="sender : ${senders}">
+            <td th:text="${sender.name}" />
+            <td th:text="${sender.destination}" />
+            <td th:text="${sender.date}" />
+            <td th:text="${sender.phone}" />
+            <td th:text="${sender.mail}" />
+            <td th:text="${sender.comment}" />
         </tr>
         </tbody>
     </table>
 </div>
 </body>
 </html>
+
+
+

@@ -17,16 +17,6 @@ public class TravellerController {
         this.travellerService = travellerService;
     }
 
-    //@GetMapping("/travellers/{id}")
-    public Traveller getTraveller(@PathVariable int id){
-        Traveller traveller = travellerService.findById(id);
-        if (traveller == null){
-            throw new RuntimeException("no traveller");
-        }
-        return traveller;
-    }
-
-    //@GetMapping("/travellers/{destinaiton}")
     @RequestMapping(value = "/travellers", params = {"destination"}, method = RequestMethod.GET)
     @ResponseBody
     public List<Traveller> findByDestination(@RequestParam String destination){
